@@ -1,12 +1,7 @@
-"use client";
-
+"use client"
 import Navbar from "@/components/navbar";
-import { useEffect, useState } from "react";
 
 export default function Adults() {
-  const [story, setStory] = useState(""); 
-  const [loading, setLoading] = useState(true);
-
   const features = [
     {
       id: 'characters',
@@ -57,42 +52,15 @@ export default function Adults() {
       color: 'from-cyan-400 to-teal-500'
     }
   ];
-
-  useEffect(() => {
-    const fetchStory = async () => {
-      try {
-        const response = await fetch("https://abe3-103-104-226-58.ngrok-free.app/generate_mystery", {
-          method: "GET",
-          headers: {
-            "Accept": "application/json"
-          },
-        });
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.includes("application/json")) {
-          const data = await response.json();
-          setStory(data.story || "No story received.");
-        } else {
-          const text = await response.text();
-          setStory("Invalid response from server: \n" + text.slice(0, 500));
-        }
-      } catch (error) {
-        console.error("Error fetching story:", error);
-        setStory("Failed to load the story.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchStory();
-  }, []);
-
-  return (
+  
+      
+  
+    return (
     <>
-      <Navbar />
+    <Navbar />
       <div className="mt-20 w-full text-center py-12 bg-gradient-to-b from-slate-800 to-slate-900 text-white text-3xl font-bold">
         Murder Mystery at Ravenwood Castle
       </div>    
-
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white px-4">
         <div className="w-full max-w-4xl mx-auto mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
@@ -128,20 +96,10 @@ export default function Adults() {
               </div>
             ))}
           </div>
-
-          {/* Display the story */}
-          <div className="mt-20 text-center">
-            {loading ? (
-              <div className="text-white text-lg">Loading Story...</div>
-            ) : (
-              <div className="mt-12 bg-slate-700 p-6 rounded-2xl text-white whitespace-pre-line text-lg leading-relaxed">
-                {story}
-              </div>
-            )}
-          </div>
-
         </div>
       </div>
     </>
-  );
-}
+      
+    );
+  }
+  
