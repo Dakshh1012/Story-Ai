@@ -3,6 +3,28 @@
 import { Loader2 } from "lucide-react"
 import { type FormEvent, useState } from "react"
 
+// Function to call the external API
+const getExternalAnswer = async (question: string): Promise<string> => {
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+
+  const requestOptions = {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify({ question }),
+    redirect: 'follow' as RequestRedirect
+  };
+
+  const response = await fetch("https://abe3-103-104-226-58.ngrok-free.app/ask_question", requestOptions);
+  
+  if (!response.ok) {
+    throw new Error(`API responded with status: ${response.status}`);
+  }
+  
+  const result = await response.text();
+  return result;
+}
+
 export default function QuestionForm() {
   const [question, setQuestion] = useState<string>("")
   const [answer, setAnswer] = useState<string>("")

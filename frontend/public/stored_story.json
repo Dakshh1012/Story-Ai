@@ -1,0 +1,125 @@
+{
+    "story": "The Mystery at Ravenwood Manor",
+    "pairs": [
+      [
+        "Professor James Winter",
+        "RESEARCHES",
+        "Ancient Rituals"
+      ],
+      [
+        "Detective Emily Windsor",
+        "INVESTIGATES",
+        "Ravenwood Manor"
+      ],
+      [
+        "Mr. Edward Blackstone",
+        "OWNS",
+        "Ravenwood Manor"
+      ],
+      [
+        "Captain Reginald Fanshawe",
+        "PROVIDES_TESTIMONY_TO",
+        "Detective Emily Windsor"
+      ],
+      [
+        "Mrs. Vivienne LaRue",
+        "WORKS_AT",
+        "Kitchen"
+      ],
+      [
+        "Torn Fabric",
+        "FOUND_IN",
+        "Gardens"
+      ],
+      [
+        "Detective Emily Windsor",
+        "DISCOVERS",
+        "Torn Fabric"
+      ],
+      [
+        "Mr. Silas Markham",
+        "MAINTAINS",
+        "Gardens"
+      ],
+      [
+        "Cryptic Message",
+        "WRITTEN_BY",
+        "Professor James Winter"
+      ],
+      [
+        "Lady Victoria Waverley",
+        "RESIDES_AT",
+        "Ravenwood Manor"
+      ],
+      [
+        "Scent of Lavender",
+        "DETECTED_IN",
+        "Her Room"
+      ],
+      [
+        "Lady Victoria Waverley",
+        "ASSOCIATED_WITH",
+        "Scent of Lavender"
+      ],
+      [
+        "Professor Reginald Thistlewaite",
+        "COLLABORATES_WITH",
+        "Professor James Winter"
+      ],
+      [
+        "Dr. Sophia Patel",
+        "EXAMINES",
+        "Torn Fabric"
+      ],
+      [
+        "Mr. Edward Blackstone",
+        "SUSPECTS",
+        "Captain Reginald Fanshawe"
+      ],
+      [
+        "Mrs. Vivienne LaRue",
+        "WITNESSED",
+        "Cryptic Message"
+      ],
+      [
+        "Professor James Winter",
+        "MENTORS",
+        "Dr. Sophia Patel"
+      ],
+      [
+        "Detective Emily Windsor",
+        "INTERVIEWS",
+        "Lady Victoria Waverley"
+      ],
+      [
+        "Mr. Silas Markham",
+        "REPORTS_TO",
+        "Mr. Edward Blackstone"
+      ],
+      [
+        "Captain Reginald Fanshawe",
+        "KNEW",
+        "Professor James Winter"
+      ],
+      [
+        "Detective Emily Windsor",
+        "CONSULTS",
+        "Professor Reginald Thistlewaite"
+      ],
+      [
+        "Lady Victoria Waverley",
+        "HIDES",
+        "Cryptic Message"
+      ],
+      [
+        "Dr. Sophia Patel",
+        "DISCOVERS",
+        "Clue 2"
+      ],
+      [
+        "Mr. Edward Blackstone",
+        "CONCEALS",
+        "Ancient Rituals"
+      ]
+    ]
+  }
