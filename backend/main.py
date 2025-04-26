@@ -3,8 +3,9 @@ import json
 from questions import setup_murder_mystery_qa
 from groq import Groq
 import logging
+from flask_cors import CORS
 app = Flask(__name__)
-
+CORS(app)
 # Load the records.json file
 with open('records.json', 'r') as f:
     records = json.load(f)
