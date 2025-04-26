@@ -38,31 +38,37 @@ def ask_question():
 groq_client = Groq(
     api_key="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"
 )
+generated_mystery_story = None
+
+# Groq API setup (your actual API key)
+api_key = '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'
+groq_client = Groq(api_key=api_key)
+
+# Load the records.json file
+with open('records.json', 'r') as f:
+    records = json.load(f)
 
 @app.route('/generate_mystery', methods=['GET'])
 def generate_mystery():
+    global generated_mystery_story
     try:
-        # Load the records data
-        with open('records.json', 'r', encoding='utf-8') as f:
-            records = json.load(f)
-        
         # Extract characters and other entities
         characters = []
         locations = []
         evidence = []
-        
+
         for record in records:
             node = record['n']
             labels = node['labels']
             name = node['properties']['name']
-            
+
             if 'Person' in labels and not any(x in labels for x in ['Location', 'Evidence']):
                 characters.append(name)
             elif 'Location' in labels:
                 locations.append(name)
             elif 'Evidence' in labels:
                 evidence.append(name)
-        
+
         # Form the prompt
         prompt = f"""Create a murder mystery story set in a grand estate using the following elements:
 
@@ -90,12 +96,7 @@ Begin the story now:
         # Send to Groq
         response = groq_client.chat.completions.create(
             model="llama3-70b-8192",
-            messages=[
-                {
-                    "role": "user", 
-                    "content": prompt,
-                }
-            ],
+            messages=[{"role": "user", "content": prompt}],
             temperature=0.7,
             max_tokens=1500
         )
@@ -103,23 +104,24 @@ Begin the story now:
         if not response.choices:
             raise ValueError("No response generated from the API")
 
-        generated_story = response.choices[0].message.content
+        # Store the generated story globally
+        generated_story = response.choices[0].message.content.strip()
+        if generated_story.startswith('"') and generated_story.endswith('"'):
+            generated_story = generated_story[1:-1]
         
-        # Clean up the response
-        story = generated_story.strip()
-        if story.startswith('"') and story.endswith('"'):
-            story = story[1:-1]
-        
+        # Set the global variable for the story
+        generated_mystery_story = generated_story
+
         return jsonify({
             "status": "success",
-            "story": story,
+            "story": generated_mystery_story,
             "elements_used": {
                 "characters": characters,
                 "locations": locations,
                 "evidence": evidence
             }
         })
-
+    
     except Exception as e:
         logging.error(f"Error in generate_mystery: {str(e)}")
         return jsonify({
@@ -214,6 +216,70 @@ def create_comic_pdf():
         return jsonify({
             "status": "error",
             "message": f"Failed to convert comic to PDF: {str(e)}"
+        }), 500
+
+
+@app.route('/modify_story', methods=['POST'])
+def modify_story():
+    global generated_mystery_story
+
+    # Check if the mystery story has been generated
+    if generated_mystery_story is None:
+        return jsonify({
+            "status": "error",
+            "message": "No mystery story generated yet. Please generate a story first."
+        }), 400
+
+    # Get the user input (e.g., "A kills B" or "B kills A")
+    data = request.get_json()
+    if 'prompt' not in data:
+        return jsonify({"error": "No prompt provided"}), 400
+
+    user_prompt = data['prompt']
+
+    try:
+        # Formulate a new prompt for Groq, incorporating the user's request to modify the plot
+        modified_prompt = f"""
+        The following is a mystery story set in a grand estate:
+
+        {generated_mystery_story}
+
+        Modify the story according to the following prompt: "{user_prompt}"
+
+        The story should reflect the new events while keeping the overall structure intact.
+        Maintain a surprising yet logical outcome, keeping the classic mystery tone.
+        """
+
+        # Send the modified prompt to Groq to generate a new story
+        response = groq_client.chat.completions.create(
+            model="llama3-70b-8192",
+            messages=[{"role": "user", "content": modified_prompt}],
+            temperature=0.7,
+            max_tokens=1500
+        )
+
+        if not response.choices:
+            raise ValueError("No response generated from the API")
+
+        # Get and clean the modified story
+        modified_story = response.choices[0].message.content.strip()
+
+        # Return the output in the original format
+        return jsonify({
+            "status": "success",
+            "story": modified_story,
+            "elements_used": {
+                "characters": ["A", "B"],  # Example of updated characters or details if needed
+                "locations": ["Grand Estate"],
+                "evidence": ["Clue 1", "Clue 2"]
+            }
+        })
+
+    except Exception as e:
+        logging.error(f"Error in modify_story: {str(e)}")
+        return jsonify({
+            "status": "error",
+            "message": f"Failed to modify the story: {str(e)}"
         }), 500
 
 if __name__ == '__main__':
