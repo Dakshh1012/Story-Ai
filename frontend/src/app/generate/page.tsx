@@ -14,7 +14,7 @@ export default function ChooseStory() {
         id: 'children',
         title: 'All Ages',
         description: 'Create content friendly for all age groups, especially children.',
-        href: '/children',
+        href: '/child',
         action: 'Write for Children',
         color: 'from-teal-400 to-cyan-500'
       },
