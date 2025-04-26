@@ -39,22 +39,24 @@ export default function QuestionForm() {
         setIsLoading(true)
         setError(null)
 
-        // Fetch answer from the backend
-        const response = await fetch('https://abe3-103-104-226-58.ngrok-free.app/get_question', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ question }),
-          });
-          
-          const data = await response.json();
+        // Use the existing getExternalAnswer function which sends to /ask_question
+        const result = await getExternalAnswer(question);
+        
+        // Parse the result - handle both string and JSON responses
+        let parsedAnswer;
+        try {
+          const jsonResult = JSON.parse(result);
+          parsedAnswer = jsonResult.answer || jsonResult;
+        } catch {
+          // If it's not JSON, use the raw result
+          parsedAnswer = result;
+        }
 
-        setAnswer(data.answer)
+        setAnswer(typeof parsedAnswer === 'string' ? parsedAnswer : JSON.stringify(parsedAnswer));
         setSubmitted(true)
-        // Don't clear the question so users can see what they asked
       } catch (err) {
-        setError("Failed to get an answer. Please try again.")
+        const errorMessage = err instanceof Error ? err.message : "Failed to get an answer. Please try again.";
+        setError(errorMessage);
         console.error("Error fetching answer:", err)
       } finally {
         setIsLoading(false)
