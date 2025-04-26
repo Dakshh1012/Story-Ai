@@ -6,7 +6,7 @@ export default function ChooseStory() {
         id: 'adults',
         title: 'PG-13',
         description: 'Create content suitable for teenagers and adults.',
-        href: '/adults',
+        href: '/adult',
         action: 'Write for Adults',
         color: 'from-blue-500 to-indigo-500'
       },
@@ -14,7 +14,7 @@ export default function ChooseStory() {
         id: 'children',
         title: 'All Ages',
         description: 'Create content friendly for all age groups, especially children.',
-        href: '/children',
+        href: '/child',
         action: 'Write for Children',
         color: 'from-teal-400 to-cyan-500'
       },

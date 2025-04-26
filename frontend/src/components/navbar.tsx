@@ -1,6 +1,6 @@
 "use client"
-import React, { useEffect, useState } from 'react';
 import { Book, Menu, X } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
