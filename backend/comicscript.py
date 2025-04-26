@@ -6,7 +6,7 @@ import json
 import time
 import google.generativeai as genai
 from typing import List, Dict
-from trial import generate_comic
+from generate_comic import generate_comic
 
 # Configuration
 GEMINI_API_KEY = "AIzaSyCTx6py1kPLFgc6JleiH1MKjXacdVRmpTE"
@@ -89,7 +89,7 @@ def generate_story_comics(story: str, title: str, output_dir: str = "comics", pa
         for idx, panel in enumerate(script[:panel_count]):
             output_path = f"{output_dir}/panel_{idx+1:02d}.webp"
             generate_comic(
-                prompt=f"Colorful minecraft style, clean line art, {panel['image_prompt']}",
+                prompt=f"Dark fantasy vintage High-quality manga art style, Ghibli-inspired, soft colors, detailed backgrounds, {panel['image_prompt']}",
                 dialogue_text=panel['teaching_text'],
                 output_path=output_path
             )
@@ -103,19 +103,12 @@ def generate_story_comics(story: str, title: str, output_dir: str = "comics", pa
 if __name__ == "__main__":
     # Example usage with a story
     sample_story = """
-    In a quiet village nestled between mountains, a young inventor named Milo created a strange device. 
-    One stormy night, the device activated unexpectedly, opening a portal to another world. 
-    Milo bravely stepped through and found himself in a land of floating islands and mechanical creatures. 
-    The inhabitants, the Gearfolk, were under attack by rogue machines. 
-    Milo used his inventing skills to help repair their defenses and befriended a young Gearfolk named Tika. 
-    Together, they discovered the rogue machines were being controlled by a corrupted central AI. 
-    After a dangerous journey to the core, Milo and Tika managed to reset the AI, saving the mechanical world. 
-    As a reward, the Gearfolk gave Milo a special crystal that would let him visit whenever he wanted.
+    It was a chilly autumn evening when Detective Emily Windsor arrived at Ravenwood Manor, the grand estate of the wealthy and reclusive Lady Victoria Waverley. The detective's sharp eyes scanned the opulent foyer, taking in the lavish furnishings and the eerie atmosphere that hung in the air like a shroud. She had been summoned to investigate a murder, and by the looks of it, it was going to be a case like no other.\n\nProfessor James Winter, a renowned expert in ancient rituals, stood beside Lady Victoria, his eyes red-rimmed from crying. \"Thank you for coming, Detective,\" he said, his voice trembling. \"We're in shock. Poor Mr. Blackstone... he was found dead in the gardens just an hour ago.\"\n\nDetective Windsor's gaze settled on the victim, Mr. Edward Blackstone, a middle-aged man with a stern expression frozen on his face. A torn piece of fabric was clutched in his hand, and a cryptic message was scrawled on the ground near his body: \"The lavender blooms in her room.\"\n\nAs the detective began to survey the crime scene, Captain Reginald Fanshawe, a decorated war hero, emerged from the shadows, his piercing blue eyes fixed on the body. \"I was in the library when I heard the shot,\" he said, his voice steady. \"I didn't see anything, but I heard footsteps fleeing towards the gardens.\"\n\nMrs. Vivienne LaRue, the manor's housekeeper, fluttered around the edge of the group, her eyes darting nervously between the detective and the body. \"I didn't see anything, Detective, but I did notice that Mr. Markham, the estate's manager, was acting strange earlier today. He seemed agitated and kept glancing at his pocket watch.\"\n\nDetective Windsor's ears perked up at the mention of Mr. Silas Markham, and she made a mental note to interview him further. She turned to Professor Thistlewaite, a gentle-looking man with a wild look in his eye. \"What can you tell me about the ritualistic aspects of this crime, Professor?\"\n\nThe professor's eyes lit up. \"Ah, yes! The torn fabric, the cryptic message... it's all connected to an ancient cult that worshipped the goddess of the harvest. They believed that the scent of lavender held mystical powers.\"\n\nDr. Sophia Patel, the estate's resident doctor, approached the group, her eyes somber. \"I've examined the body, Detective. The victim was shot at close range, and the killer was likely someone he trusted.\"\n\nAs the detective continued to investigate, she discovered a hidden room in Lady Victoria's chambers, filled with ancient artifacts and tomes. A small, ornate box on the dresser caught her eye, emitting a faint scent of lavender. Inside, she found a note that read: \"Meet me in the gardens at midnight. Come alone.\"\n\nThe game was afoot. Detective Windsor's mind raced with theories and suspects. Was it Mr. Markham, acting on a hidden agenda? Or perhaps Captain Fanshawe, seeking revenge for a past grievance? Or maybe, just maybe, it was Lady Victoria herself, using her wealth and influence to cover her tracks.\n\nAs the sun dipped below the horizon, Detective Windsor gathered the suspects in the grand ballroom. She revealed the torn fabric, the cryptic message, and the hidden room, her eyes locked on each face, searching for the telltale signs of guilt.\n\nAnd then, in a stunning twist, she revealed the killer: Professor James Winter. The soft-spoken professor had been using his knowledge of ancient rituals to cover his own tracks, using the torn fabric and cryptic message to mislead the investigation. The scent of lavender, it turned out, was a red herring, meant to distract from the true motive: a long-buried family secret that threatened to destroy Lady Victoria's reputation.\n\nAs the professor was led away in handcuffs, Detective Windsor couldn't help but feel a sense of satisfaction. It had been a complex case, full of twists and turns, but in the end, justice had been served. And as she left Ravenwood Manor, she couldn't help but wonder what other secrets the grand estate held, waiting to be uncovered.
     """
     
     generate_story_comics(
         story=sample_story,
-        title="Milo's Mechanical Adventure",
-        output_dir="milos_adventure_comics",
+        title="Murder at Ravenwood Manor",
+        output_dir="comic",
         panel_count=10
     )

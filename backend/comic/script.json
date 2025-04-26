@@ -1,0 +1,52 @@
+[
+  {
+    "panel_number": 1,
+    "image_prompt": "A Minecraft-style depiction of Ravenwood Manor, a large, gothic-style mansion at dusk.  Detective Emily Windsor, a pixelated woman in a trench coat, stands in the cobblestone entryway, looking up at the imposing building.  The sky is a blend of orange and purple.",
+    "teaching_text": "Ravenwood Manor. A chilling autumn evening."
+  },
+  {
+    "panel_number": 2,
+    "image_prompt": "Inside the manor's foyer, lavish Minecraft furniture and stained-glass windows.  Professor Winter, a pixelated man in a tweed jacket, points towards a body on the floor (Mr. Blackstone). Lady Victoria stands beside him, visibly upset. The body is pixelated and has a clear wound.",
+    "teaching_text": "Murder! A terrible crime."
+  },
+  {
+    "panel_number": 3,
+    "image_prompt": "Close-up on Mr. Blackstone's lifeless body. A piece of torn purple fabric is clutched in his hand. Scrawled on the floor nearby in dirt is the message: \"The lavender blooms in her room.\"",
+    "teaching_text": "\"The lavender blooms in her room.\""
+  },
+  {
+    "panel_number": 4,
+    "image_prompt": "Captain Fanshawe, a pixelated man in a military uniform, speaks to Detective Windsor.  The background shows a Minecraft-style library.",
+    "teaching_text": "\"I heard a shot and footsteps towards the gardens.\""
+  },
+  {
+    "panel_number": 5,
+    "image_prompt": "Mrs. LaRue, a pixelated housekeeper in a maid's uniform, nervously looks at Detective Windsor.  In the background, a blurry Mr. Silas Markham is visible.",
+    "teaching_text": "\"I noticed Mr. Markham was acting strangely.\""
+  },
+  {
+    "panel_number": 6,
+    "image_prompt": "Professor Thistlewaite, a pixelated man with wild hair, excitedly explains something to Detective Windsor.  Books and strange artifacts are scattered on a table.",
+    "teaching_text": "\"An ancient harvest goddess cult! The fabric, the message... it's all connected.\""
+  },
+  {
+    "panel_number": 7,
+    "image_prompt": "Dr. Patel, a pixelated woman in a doctor's coat, examines the body.  Medical tools are scattered around. ",
+    "teaching_text": "\"Cause of death: gunshot wound.\""
+  },
+  {
+    "panel_number": 8,
+    "image_prompt": "Detective Windsor discovers a hidden room in Lady Victoria's chambers. It is filled with Minecraft-style ancient artifacts and books. A small, ornate box emitting a faint purple glow is on a dresser.",
+    "teaching_text": "A hidden room... and a note."
+  },
+  {
+    "panel_number": 9,
+    "image_prompt": "Detective Windsor confronts the suspects (Professor Winter, Captain Fanshawe, Mrs. LaRue, Mr. Markham) in a grand Minecraft ballroom.  She holds the torn fabric and the note.",
+    "teaching_text": "The truth will be revealed..."
+  },
+  {
+    "panel_number": 10,
+    "image_prompt": "Professor Winter is being led away in handcuffs by a pixelated police officer. Detective Windsor looks on, her expression serious.  The background is the grand ballroom.",
+    "teaching_text": "Professor Winter... the killer."
+  }
+]
