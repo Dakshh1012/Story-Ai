@@ -1,0 +1,193 @@
+[
+    {
+      "n": {
+        "identity": 0,
+        "labels": ["Person", "Professor"],
+        "properties": {
+          "name": "Professor James Winter"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:0"
+      }
+    },
+    {
+      "n": {
+        "identity": 1,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Kitchen"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:1"
+      }
+    },
+    {
+      "n": {
+        "identity": 2,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Detective Emily Windsor"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:2"
+      }
+    },
+    {
+      "n": {
+        "identity": 3,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Mr. Edward Blackstone"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:3"
+      }
+    },
+    {
+      "n": {
+        "identity": 4,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Captain Reginald Fanshawe"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:4"
+      }
+    },
+    {
+      "n": {
+        "identity": 5,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Ancient Rituals"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:5"
+      }
+    },
+    {
+      "n": {
+        "identity": 6,
+        "labels": ["Evidence", "Person"],
+        "properties": {
+          "name": "Torn Fabric"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:6"
+      }
+    },
+    {
+      "n": {
+        "identity": 7,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Mrs. Vivienne LaRue"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:7"
+      }
+    },
+    {
+      "n": {
+        "identity": 8,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Mr. Silas Markham"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:8"
+      }
+    },
+    {
+      "n": {
+        "identity": 9,
+        "labels": ["Location", "Person"],
+        "properties": {
+          "name": "Gardens"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:9"
+      }
+    },
+    {
+      "n": {
+        "identity": 10,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Cryptic Message"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:10"
+      }
+    },
+    {
+      "n": {
+        "identity": 11,
+        "labels": ["Location", "Person"],
+        "properties": {
+          "name": "Ravenwood Manor"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:11"
+      }
+    },
+    {
+      "n": {
+        "identity": 12,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Others"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:12"
+      }
+    },
+    {
+      "n": {
+        "identity": 13,
+        "labels": ["Noble", "Person"],
+        "properties": {
+          "name": "Lady Victoria Waverley"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:13"
+      }
+    },
+    {
+      "n": {
+        "identity": 14,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Scent of Lavender"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:14"
+      }
+    },
+    {
+      "n": {
+        "identity": 15,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Her Room"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:15"
+      }
+    },
+    {
+      "n": {
+        "identity": 16,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Clue 2"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:16"
+      }
+    },
+    {
+      "n": {
+        "identity": 17,
+        "labels": ["Person", "Professor"],
+        "properties": {
+          "name": "Professor Reginald Thistlewaite"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:17"
+      }
+    },
+    {
+      "n": {
+        "identity": 18,
+        "labels": ["Person"],
+        "properties": {
+          "name": "Dr. Sophia Patel"
+        },
+        "elementId": "4:2948f79f-4a3a-413c-8fcb-d7fc07aac3bd:18"
+      }
+    }
+  ]
+  
