@@ -122,5 +122,70 @@ Begin the story now:
             "status": "error",
             "message": f"Failed to generate mystery: {str(e)}"
         }), 500
+@app.route('/generate_superhero', methods=['GET'])
+def generate_superhero():
+    try:
+        # Child-friendly prompt with simple vocabulary requirements
+        prompt = """Create a fun superhero story for young children (ages 4-8) with these rules:
+        
+1. Main Characters:
+- Super Sunny: A hero who controls sunlight
+- Captain Cloud: Can make fluffy clouds appear
+- Raindrop Girl: Makes gentle rain for plants
+
+2. Must Include:
+- A simple problem (like a dried-up garden)
+- The heroes working together
+- A happy ending
+- At least 3 sound effects (like WHOOSH! or SPLASH!)
+
+3. Writing Style:
+- Very short sentences
+- Words with 1-2 syllables mostly
+- Lots of repetition
+- No scary elements
+
+4. Format:
+- Each sentence on a new line
+
+Story:"""
+
+        # Send to Groq with child-friendly settings
+        response = groq_client.chat.completions.create(
+            model="llama3-70b-8192",
+            messages=[
+                {
+                    "role": "user", 
+                    "content": prompt,
+                }
+            ],
+            temperature=0.9,  # Higher for more creativity
+            max_tokens=300,
+            stop=["Moral:", "10."]  # Stop conditions
+        )
+
+        if not response.choices:
+            raise ValueError("No story generated")
+
+        # Format the response for children
+        story = response.choices[0].message.content
+        simplified_story = "\n".join(
+            line for line in story.split('\n') 
+            if line.strip() and len(line.split()) <= 8
+        )
+
+        return jsonify({
+            "status": "success",
+            "story": simplified_story,
+            "format": "child_friendly",
+            "word_count": len(simplified_story.split())
+        })
+
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": f"Couldn't make superhero story: {str(e)}",
+            "child_friendly_error": "Oops! The story machine took a nap. Try again soon!"
+        }), 500
 if __name__ == '__main__':
-    app.run(debug=True,port=5001)
+    app.run(port=5001, debug=True)
