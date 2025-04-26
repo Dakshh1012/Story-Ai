@@ -77,7 +77,7 @@ export default function Hero() {
       title: 'Audience-Tailored',
       description: 'Generate chapters with vocabulary matched to your target audience.',
       icon: Book,
-      href: '/audience-tailoring',
+      href: '/generate',
       action: 'Craft Story',
       color: 'from-blue-500 to-indigo-500'
     },
