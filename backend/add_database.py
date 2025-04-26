@@ -2,6 +2,7 @@ from neo4j import GraphDatabase
 from generate_story import generate_murder_mystery_story
 from generate_pairs import extract_relationship_triples
 from database import add_edge,add_node,connect_people,create_person
+import json
 # Replace with your Neo4j details
 uri = "bolt://localhost:7687"
 username = "neo4j"
@@ -15,6 +16,15 @@ api_key="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"
 story=generate_murder_mystery_story(api_key=api_key)
 
 pairs=extract_relationship_triples(story,api_key=api_key)
+story_data = {
+    'story': story,
+    'pairs': pairs
+}
+
+with open('stored_story.json', 'w', encoding='utf-8') as f:
+    json.dump(story_data, f, ensure_ascii=False, indent=4)
+
+print("Story and pairs saved to stored_story.json")
 print(pairs)
 import sys
 
@@ -73,5 +83,3 @@ def populate_neo4j_database(relationship_pairs):
     finally:
         driver.close()
 
-def return_essential_info():
-    return story,pairs
