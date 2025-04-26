@@ -2,6 +2,7 @@
 
 import { Book, GitBranch, Lightbulb, RefreshCw } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import Navbar from './navbar';
 // Background animation component
 const AnimatedBackground = () => {
   const [circles, setCircles] = useState([]);
@@ -109,40 +110,13 @@ export default function Hero() {
     }
   ];
 
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 0;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [scrolled]);
+  
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white">
       <AnimatedBackground />
-      
+      <Navbar />
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6">
-        <nav className={`fixed top-0 w-full z-20 p-6 flex justify-between items-center transition-all duration-300 ${
-          scrolled 
-          ? 'bg-slate-900/10 backdrop-blur-md' 
-          : 'bg-slate-900'
-        }`}>
-          <div className="font-bold text-4xl text-blue-400" style={{ fontFamily: "'Playfair Display', serif" }}>StoryAI</div>
-          <div className="flex space-x-6">
-            <a href="#" className="text-white hover:text-blue-400 transition-colors">Features</a>
-            <a href="#" className="text-white hover:text-blue-400 transition-colors">Pricing</a>
-            <a href="#" className="text-white hover:text-blue-400 transition-colors">Contact</a>
-          </div>
-        </nav>
-
         <main className="mt-32 max-w-6xl mx-auto text-center">
           <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent" style={{ fontFamily: "'Playfair Display', serif" }}>
             {/* <TypingAnimation /> */}
