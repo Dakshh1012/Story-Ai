@@ -58,11 +58,14 @@ export default function Adults() {
     return (
     <>
     <Navbar />
-    <div className="mt-20 flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white px-4">
+      <div className="mt-20 w-full text-center py-12 bg-gradient-to-b from-slate-800 to-slate-900 text-white text-3xl font-bold">
+        Murder Mystery at Ravenwood Castle
+      </div>    
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white px-4">
         <div className="w-full max-w-4xl mx-auto mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
             {features.map((feature) => (
-              <div 
+              <div  
                 key={feature.id}
                 className="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 w-full max-w-sm"
               >
