@@ -2,40 +2,57 @@
 import Navbar from "@/components/navbar";
 
 export default function Adults() {
-    const features = [
-        {
-          id: 'questions',
-          title: 'Questions',
-          description: 'Navigate through a series of questions to guide your content creation.',
-          href: '/adult-questions',
-          action: 'Start Answering',
-          color: 'from-blue-500 to-indigo-500'
-        },
-        {
-          id: 'graph',
-          title: 'Graph',
-          description: 'Visualize data and content in graph form for better understanding.',
-          href: '/adult-graph',
-          action: 'View Graph',
-          color: 'from-teal-400 to-cyan-500'
-        },
-        {
-          id: 'branching',
-          title: 'Branching',
-          description: 'Create content with different paths and outcomes based on choices.',
-          href: '/adult-branching',
-          action: 'Create Branches',
-          color: 'from-purple-500 to-pink-500'
-        },
-        {
-          id: 'comics',
-          title: 'Comics',
-          description: 'Generate content in comic format with engaging visuals and storylines.',
-          href: '/adult-comics',
-          action: 'Create Comics',
-          color: 'from-green-400 to-lime-500'
-        }
-      ];
+  const features = [
+    {
+      id: 'characters',
+      title: 'Characters',
+      description: 'Explore the characters of the story.',
+      href: '/adult-characters',
+      action: 'See Characters',
+      color: 'from-rose-500 to-pink-500'
+    },
+    {
+      id: 'read-aloud',
+      title: 'Read Aloud',
+      description: 'Listen to the story by an AI narrator.',
+      href: '/adult-read',
+      action: 'Listen Now',
+      color: 'from-sky-400 to-blue-500'
+    },
+    {
+      id: 'questions',
+      title: 'Questions',
+      description: 'Navigate through a series of questions to guide your content creation.',
+      href: '/adult-questions',
+      action: 'Start Answering',
+      color: 'from-emerald-400 to-green-500'
+    },
+    {
+      id: 'graph',
+      title: 'Graph',
+      description: 'Visualize data and content in graph form for better understanding.',
+      href: '/adult-graph',
+      action: 'View Graph',
+      color: 'from-violet-500 to-fuchsia-500'
+    },
+    {
+      id: 'story',
+      title: 'Story',
+      description: 'Create content with different paths and outcomes based on choices.',
+      href: '/adult-story',
+      action: 'Create Branches',
+      color: 'from-yellow-400 to-amber-500'
+    },
+    {
+      id: 'comics',
+      title: 'Comics',
+      description: 'Generate content in comic format with engaging visuals and storylines.',
+      href: '/adult-comics',
+      action: 'Create Comics',
+      color: 'from-cyan-400 to-teal-500'
+    }
+  ];
+  
       
   
     return (
