@@ -86,7 +86,7 @@ export default function Hero() {
       title: 'Narrative Coherence',
       description: 'Ensure consistent character development and plot progression.',
       icon: RefreshCw,
-      href: '/coherence-tools',
+      href: '/questions',
       action: 'Analyze Story',
       color: 'from-teal-400 to-cyan-500'
     },
