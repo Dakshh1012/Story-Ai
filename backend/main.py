@@ -1,9 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 import json
 from questions import setup_murder_mystery_qa
 from groq import Groq
 import logging
 from flask_cors import CORS
+from tp import convert_comic_to_pdf
+import os
+
 app = Flask(__name__)
 CORS(app)
 # Load the records.json file
@@ -123,6 +126,7 @@ Begin the story now:
             "status": "error",
             "message": f"Failed to generate mystery: {str(e)}"
         }), 500
+
 @app.route('/generate_superhero', methods=['GET'])
 def generate_superhero():
     try:
@@ -188,5 +192,29 @@ Story:"""
             "message": f"Couldn't make superhero story: {str(e)}",
             "child_friendly_error": "Oops! The story machine took a nap. Try again soon!"
         }), 500
+
+# Add this new endpoint
+@app.route('/convert_comic_to_pdf', methods=['GET'])
+def create_comic_pdf():
+    try:
+        comic_directory = request.args.get('directory', 'comic')
+        output_filename = request.args.get('output', 'comic_book.pdf')
+        
+        # Convert images to PDF
+        pdf_path = convert_comic_to_pdf(comic_directory, output_filename)
+        
+        # Return the PDF file
+        return send_file(
+            pdf_path,
+            mimetype='application/pdf',
+            as_attachment=True,
+            download_name=os.path.basename(output_filename)
+        )
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": f"Failed to convert comic to PDF: {str(e)}"
+        }), 500
+
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
