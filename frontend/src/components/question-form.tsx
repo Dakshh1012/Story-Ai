@@ -1,6 +1,5 @@
 "use client"
 
-import { getAnswer } from "@/app/questions/actions"
 import { Loader2 } from "lucide-react"
 import { type FormEvent, useState } from "react"
 
@@ -19,9 +18,17 @@ export default function QuestionForm() {
         setError(null)
 
         // Fetch answer from the backend
-        const response = await getAnswer(question)
+        const response = await fetch('https://abe3-103-104-226-58.ngrok-free.app/get_question', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ question }),
+          });
+          
+          const data = await response.json();
 
-        setAnswer(response)
+        setAnswer(data.answer)
         setSubmitted(true)
         // Don't clear the question so users can see what they asked
       } catch (err) {
