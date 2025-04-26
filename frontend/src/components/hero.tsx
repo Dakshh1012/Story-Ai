@@ -1,19 +1,9 @@
-'use client';
-
 import { Book, GitBranch, Lightbulb, RefreshCw } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Navbar from './navbar';
 
 const AnimatedBackground = () => {
   const [circles, setCircles] = useState<{ id: number; top: string; left: string; size: string; duration: string; delay: string }[]>([]);
-
-  useEffect(() => {
-    const preloadFont = document.createElement('link');
-    preloadFont.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap';
-    preloadFont.rel = 'stylesheet';
-    document.head.appendChild(preloadFont);
-    return () => document.head.removeChild(preloadFont);
-  }, []);
 
   useEffect(() => {
     const getRandomPercent = () => `${Math.floor(Math.random() * 100)}%`;
@@ -106,12 +96,12 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6">
         <main className="mt-24 max-w-6xl mx-auto text-center">
         <h1
-          className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wide drop-shadow-lg animate-gradient-slow"
+          className="text-5xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wide drop-shadow-lg animate-gradient-slow"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           AI Story Management
         </h1>
-          <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
             Craft captivating narratives with AI assistance tailored to your audience and storyline.
           </p>
 
@@ -131,9 +121,9 @@ export default function Hero() {
                       <div className="w-2 h-2 bg-white/40 rounded-full group-hover:bg-white group-hover:scale-125 transition-all duration-300" />
                     </div>
                   </div>
-                  <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="text-slate-400 text-sm min-h-[3rem] leading-relaxed">{description}</p>
-                  <a href={href} className="inline-flex items-center text-white text-sm font-medium group-hover:text-white">
+                  <h3 className="text-lg font-semibold" style={{ fontFamily: "'Inter', sans-serif" }}>{title}</h3>
+                  <p className="text-slate-400 text-sm min-h-[3rem] leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>{description}</p>
+                  <a href={href} className="inline-flex items-center text-white text-sm font-medium group-hover:text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
                     <span className="border-b border-transparent group-hover:border-white transition duration-300">{action}</span>
                     <span className="ml-2 transition-transform transform group-hover:translate-x-1">→</span>
                   </a>
@@ -145,14 +135,18 @@ export default function Hero() {
 
           <div className="flex flex-wrap justify-center gap-3 mb-20">
             {['Advanced AI Writing', 'Character Development', 'World Building', 'Export to Multiple Formats'].map((tag, idx) => (
-              <div key={idx} className="py-2 px-5 bg-slate-700/80 rounded-full text-slate-300 text-sm backdrop-blur-md">
+              <div 
+                key={idx} 
+                className="py-2 px-5 bg-slate-700/80 rounded-full text-slate-300 text-sm backdrop-blur-md"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
                 {tag}
               </div>
             ))}
           </div>
         </main>
 
-        <footer className="w-full p-6 text-center text-slate-600 text-xs">
+        <footer className="w-full p-6 text-center text-slate-600 text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
           © {new Date().getFullYear()} StoryAI • AI-Powered Narrative Creation
         </footer>
       </div>
