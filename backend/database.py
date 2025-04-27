@@ -3,7 +3,7 @@ from neo4j import GraphDatabase
 # Replace with your Neo4j details
 uri = "bolt://localhost:7687"
 username = "neo4j"
-password = "manishaJ1"
+password = "your_password"
 
 driver = GraphDatabase.driver(uri, auth=(username, password))
 print("Connected to Neo4j database")
